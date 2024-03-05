@@ -10,7 +10,7 @@ public class Assignment3 {
         System.out.println("Input the number b: ");
         int b = scanner.nextInt();
         System.out.println("Input the operator: ");
-        String operator = scanner.toString();
+        String operator = scanner.next();
         switch(operator) {
             case "+":
                 System.out.println("The sum of the 2 numbers: "+ (a+b));
@@ -18,10 +18,10 @@ public class Assignment3 {
             case "-":
                 System.out.println("The difference of the 2 numbers: "+ (a-b));
                 break;
-            case "x":
+            case "*":
                 System.out.println("The product of the 2 numbers: " + (a*b));
                 break;
-            case ":":
+            case "/":
                 System.out.println("The Quotient of the 2 numbers: " + (a/b));
                 break;
             default:
