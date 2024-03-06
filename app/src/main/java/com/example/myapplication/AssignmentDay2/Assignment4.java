@@ -86,14 +86,16 @@ class Main4 {
             for (int j = 0; j < soThanhVien; j++) {
                 System.out.println("Nhập thông tin cho thành viên thứ " + (j + 1) + ":");
                 System.out.println("Họ tên: ");
-                String hoTen = scanner.nextLine();
+                String hoTen = scanner.next();
+                scanner.nextLine();
 
                 System.out.println("Tuổi: ");
                 int tuoi = scanner.nextInt();
                 scanner.nextLine();
 
                 System.out.println("Nghề nghiệp: ");
-                String ngheNghiep = scanner.nextLine();
+                String ngheNghiep = scanner.next();
+                scanner.nextLine();
 
                 System.out.println("Số CMND: ");
                 int soCMND = scanner.nextInt();
