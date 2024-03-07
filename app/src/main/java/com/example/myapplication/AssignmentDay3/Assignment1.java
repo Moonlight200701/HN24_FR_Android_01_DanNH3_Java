@@ -12,13 +12,13 @@ public class Assignment1 {
             System.out.println("Nhập số thức thứ 2");
             double soThuc2 = scanner.nextDouble();
 
-            Divide(soThuc1, soThuc2);
+            chia2So(soThuc1, soThuc2);
         } catch (InputMismatchException e) {
             System.out.println("Đó không phải là số");
         }
     }
 
-    public static void Divide(double soThuc1, double soThuc2) {
+    public static void chia2So(double soThuc1, double soThuc2) {
         try {
             if (soThuc2 == 0) {
                 throw new ArithmeticException();
