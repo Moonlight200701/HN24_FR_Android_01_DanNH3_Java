@@ -71,8 +71,7 @@ class Main4 {
 
         System.out.println("Nhập số lượng hộ dân: ");
         int n = scanner.nextInt();
-        scanner.nextLine();
-
+        scanner.nextLine(); //Xuong dong
         for (int i = 0; i < n; i++) {
             System.out.println("Nhập thông tin cho hộ dân thứ " + (i + 1) + ":");
             System.out.println("Số nhà: ");
@@ -83,6 +82,7 @@ class Main4 {
             scanner.nextLine();
 
             List<Nguoi> thanhVien = new ArrayList<>();
+
             for (int j = 0; j < soThanhVien; j++) {
                 System.out.println("Nhập thông tin cho thành viên thứ " + (j + 1) + ":");
                 System.out.println("Họ tên: ");
@@ -99,7 +99,6 @@ class Main4 {
 
                 System.out.println("Số CMND: ");
                 int soCMND = scanner.nextInt();
-
                 thanhVien.add(new Nguoi(hoTen, ngheNghiep,tuoi, soCMND));
             }
 
