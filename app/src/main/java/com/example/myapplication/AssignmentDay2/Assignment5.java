@@ -27,13 +27,16 @@ class Main5{
         for(int i = 0; i<=n; i++ ){
             System.out.println("Nhập thông tin cho học sinh thứ " + (i + 1) + ":");
             System.out.println("Lớp: ");
-            String lop = scanner.nextLine();
+            String lop = scanner.next();
+            scanner.nextLine();
 
             System.out.println("Họ tên: ");
-            String hoTen = scanner.nextLine();
+            String hoTen = scanner.next();
+            scanner.nextLine();
 
             System.out.println("Tuổi: ");
             int tuoi = scanner.nextInt();
+            scanner.nextLine();
 
             System.out.println("Quê quán: ");
             String queQuan = scanner.next();
