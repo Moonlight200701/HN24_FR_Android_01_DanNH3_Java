@@ -48,6 +48,7 @@ class KhachHangDacBiet extends KhachHang {
         super(soLuong, donGia);
     }
 
+    @Override
     double tinhToanChiPhi() {
         double tongTien = super.tinhToanChiPhi() * 0.5;
         return tongTien + tongTien * 0.1; // VAT 10%

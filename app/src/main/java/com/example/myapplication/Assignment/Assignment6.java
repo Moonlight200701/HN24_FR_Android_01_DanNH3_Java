@@ -7,6 +7,10 @@ public class Assignment6 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input a number of your choice: ");
         int number = scanner.nextInt();
+        if(number < 0){
+            System.out.println("Bruh");
+            return;
+        }
         int sum = 0;
         for(int i = 1; i<= number - 1; i++){
             sum+=i;
