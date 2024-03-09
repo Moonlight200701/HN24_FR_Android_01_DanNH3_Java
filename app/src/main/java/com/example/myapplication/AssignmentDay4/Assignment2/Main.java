@@ -40,21 +40,15 @@ public class Main {
                                 scanner.nextLine();
                             }
                         }
-
                         System.out.println("Name: ");
                         String name = scanner.next();
                         scanner.nextLine();
                         System.out.println("Sex: ");
-                        String sex = scanner.next();
-                        while (true) {
-                            if (sex.toLowerCase().equals("male") || sex.toLowerCase().equals("female")){
-                                sex = scanner.next();
-                                scanner.nextLine();
-                                break;
-                            } else {
-                                System.out.println("That's not a number, try again");
-                                scanner.nextLine();
-                            }
+                        String sex = scanner.next().toLowerCase();
+                        while (!sex.equals("male") && !sex.equals("female")) {
+                            System.out.println("Not a gender try again");
+                            System.out.print("Sex: ");
+                            sex = scanner.nextLine().toLowerCase();
                         }
                         scanner.nextLine();
                         System.out.println("Age: ");
@@ -99,9 +93,7 @@ public class Main {
                 case "4":
                     return;
                 default:
-
                     System.out.println("Not an option");
-
             }
         }
     }
