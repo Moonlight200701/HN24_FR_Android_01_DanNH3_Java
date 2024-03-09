@@ -151,6 +151,11 @@ public class Main {
         } else {
             System.out.print("Nhập Id nhân viên muốn tìm");
             String searchKey = scanner.nextLine().toLowerCase();
+            while(searchKey.equals("")){
+                System.out.println("Hãy nhập thông tin ");
+                System.out.println("Nhập id nhân viên muốn tìm");
+                searchKey = scanner.nextLine().toLowerCase();
+            }
 
             boolean found = false;
             for (NhanVien nhanVien : nhanViens) {

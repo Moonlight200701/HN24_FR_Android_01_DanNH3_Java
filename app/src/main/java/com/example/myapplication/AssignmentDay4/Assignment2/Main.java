@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int numberOfStudent;
+        int numberOfStudent, rollNo = 0;
         String choice;
         StudentManagement studentManagement = new StudentManagement();
         while (true) {
@@ -13,6 +13,7 @@ public class Main {
             System.out.println("2. Print student's infos");
             System.out.println("3. Search for a student");
             System.out.println("4, End the session");
+            System.out.println("Note: RollNo of the student always starts from 0");
 
             choice = scanner.next();
             switch (choice) {
@@ -29,17 +30,17 @@ public class Main {
                     }
                     for (int i = 0; i <= numberOfStudent - 1; i++) {
                         System.out.println("Input the student number: " + (i + 1));
-                        System.out.println("RollNo: ");
-                        int rollNo;
-                        while (true) {
-                            if (scanner.hasNextInt()) {
-                                rollNo = scanner.nextInt();
-                                break;
-                            } else {
-                                System.out.println("That's not a number, try again");
-                                scanner.nextLine();
-                            }
-                        }
+//                        System.out.println("RollNo: ");
+//                        int rollNo;
+//                        while (true) {
+//                            if (scanner.hasNextInt()) {
+//                                rollNo = scanner.nextInt();
+//                                break;
+//                            } else {
+//                                System.out.println("That's not a number, try again");
+//                                scanner.nextLine();
+//                            }
+//                        }
                         System.out.println("Name: ");
                         String name = scanner.next();
                         scanner.nextLine();
@@ -86,9 +87,9 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("Input rollNo");
-                    int rollNo = scanner.nextInt();
+                    int rollNoOfStudent = scanner.nextInt();
                     scanner.nextLine();
-                    studentManagement.printStudent(rollNo);
+                    studentManagement.printStudent(rollNoOfStudent);
                     break;
                 case "4":
                     return;

@@ -1,7 +1,7 @@
 package com.example.myapplication.AssignmentDay4.Assignment2;
 
 public class Students {
-    private int rollNo ;
+    private int rollNo = 0;
 
     private String name;
 
@@ -18,7 +18,7 @@ public class Students {
     }
 
     public Students(int rollNo, String name, String sex, int age, String email, String address) {
-        this.rollNo = rollNo;
+        this.rollNo = rollNo++;
         this.name = name;
         this.sex = sex;
         this.age = age;
