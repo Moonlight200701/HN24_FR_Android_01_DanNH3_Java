@@ -14,6 +14,7 @@ public class Main {
             System.out.println("3. Search for a student");
             System.out.println("4, End the session");
             System.out.println("Note: RollNo of the student always starts from 0");
+            System.out.println("------------------------------------------------");
 
             choice = scanner.next();
             switch (choice) {
@@ -46,6 +47,7 @@ public class Main {
                         scanner.nextLine();
                         System.out.println("Sex: ");
                         String sex = scanner.next().toLowerCase();
+                        //check if the input is male or female, if not, make the user input again
                         while (!sex.equals("male") && !sex.equals("female")) {
                             System.out.println("Not a gender try again");
                             System.out.print("Sex: ");
@@ -54,6 +56,7 @@ public class Main {
                         scanner.nextLine();
                         System.out.println("Age: ");
                         int age;
+                        //check if the age input is a number or not
                         while (true) {
                             if (scanner.hasNextInt()) {
                                 age = scanner.nextInt();
@@ -77,6 +80,7 @@ public class Main {
                         }
                         System.out.println("Address: ");
                         String address = scanner.nextLine();
+                        //rollNo++ to prevent duplicate keys in maps which may cause an exception that cause the system to crash
                         Students student = new Students(rollNo++, name, sex, age, email, address);
                         studentManagement.addStudent(student);
                         System.out.println("Add student " + (i + 1) + " successfully");

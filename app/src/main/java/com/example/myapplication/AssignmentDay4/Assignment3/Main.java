@@ -11,26 +11,26 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Muốn làm gì? (add/display/update/find/exit): ");
+            System.out.print("Muốn làm gì? (thêm/hiển thị/cập nhật/tìm kiếm/thoát): ");
             String action = scanner.nextLine().toLowerCase();
 
             switch (action) {
-                case "add":
+                case "thêm":
                     themNhanVien(scanner);
                     break;
-                case "display":
+                case "hiển thị":
                     hienThiNhanVien();
                     break;
-                case "update":
+                case "cập nhật":
                     capNhatNhanVien(scanner);
                     break;
-                case "find":
+                case "tìm kiếm":
                     timNhanVien(scanner);
                     break;
-                case "exit":
+                case "thoát":
                     return;
                 default:
-                    System.out.println("Hành động không hợp lệ , chọn 1 trong các lựa chọn: add/display/update/find/exit.");
+                    System.out.println("Hành động không hợp lệ , chọn 1 trong các lựa chọn: thêm/hiển thị/cập nhật/tìm kiếm/thoát.");
                     break;
             }
         }
@@ -90,7 +90,7 @@ public class Main {
     private static void capNhatNhanVien(Scanner scanner) {
         System.out.print("Nhập Id Nhân viên muốn update ");
         int employeeId = scanner.nextInt();
-        scanner.nextLine(); // consume the newline character
+        scanner.nextLine();
 
         for (NhanVien nhanVien : nhanVienList) {
             if (nhanVien.nhanVienId == employeeId) {
@@ -100,40 +100,40 @@ public class Main {
                 System.out.println("Thông tin mới: ");
 
                 System.out.print("Tên: ");
-                String name = scanner.nextLine();
+                String ten = scanner.nextLine();
 
                 System.out.print("Giới tính (Nam/Nữ): ");
-                String gender = scanner.nextLine().toLowerCase();
-                while (!gender.equals("nam") && !gender.equals("nữ")) {
+                String gioiTinh = scanner.nextLine().toLowerCase();
+                while (!gioiTinh.equals("nam") && !gioiTinh.equals("nữ")) {
                     System.out.println("Sai giới tính, nhập lại.");
                     System.out.print("Giới tính (Nam/Nữ): ");
-                    gender = scanner.nextLine().toLowerCase();
+                    gioiTinh = scanner.nextLine().toLowerCase();
                 }
 
                 System.out.print("Ngày tháng năm sinh: ");
-                String dob = scanner.nextLine();
-                while (dob.length() != 10) {
+                String ngayThangNam = scanner.nextLine();
+                while (ngayThangNam.length() != 10) {
                     System.out.println("Không hợp lệ, hãy nhập như sau: dd/mm/yyyy.");
                     System.out.print("Ngày tháng năm sinh:");
-                    dob = scanner.nextLine();
+                    ngayThangNam = scanner.nextLine();
                 }
 
                 System.out.print("Số điện thoại: ");
-                String phone = scanner.nextLine();
+                String dienThoai = scanner.nextLine();
 
                 System.out.print("Trình độ chuyên môn (Trung cấp/Cao đẳng/Đại học): ");
-                String educationLevel = scanner.nextLine().toLowerCase();
-                while (!educationLevel.equals("trung cấp") && !educationLevel.equals("cao đẳng") && !educationLevel.equals("đại học")) {
+                String trinhDoChuyenMon = scanner.nextLine().toLowerCase();
+                while (!trinhDoChuyenMon.equals("trung cấp") && !trinhDoChuyenMon.equals("cao đẳng") && !trinhDoChuyenMon.equals("đại học")) {
                     System.out.println("Không hợp lệ. Chọn 1 trong 3: 'Trung cấp', 'Cao đẳng', hoặc 'Đại học'.");
                     System.out.print("Trình độ chuyên môn (Trung cấp/Cao đẳng/Đại học): ");
-                    educationLevel = scanner.nextLine().toLowerCase();
+                    trinhDoChuyenMon = scanner.nextLine().toLowerCase();
                 }
 
-                nhanVien.ten = name;
-                nhanVien.gioiTinh = gender;
-                nhanVien.ngayThangNamSinh = dob;
-                nhanVien.dienThoai = phone;
-                nhanVien.trinhDoChuyenMon = educationLevel;
+                nhanVien.ten = ten;
+                nhanVien.gioiTinh = gioiTinh;
+                nhanVien.ngayThangNamSinh = ngayThangNam;
+                nhanVien.dienThoai = dienThoai;
+                nhanVien.trinhDoChuyenMon = trinhDoChuyenMon;
 
                 System.out.println("Cập nhật thông tin thành công. ");
                 System.out.println("Thông tin mới: ");
