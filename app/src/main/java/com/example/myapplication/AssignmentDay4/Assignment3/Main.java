@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static ArrayList<NhanVien> nhanViens = new ArrayList<>();
+    static ArrayList<NhanVien> nhanVienList = new ArrayList<>();
     private static final String DATE_PATTERN = "^\\d{2}/\\d{2}/\\d{4}$";
 
     public static void main(String[] args) {
@@ -73,15 +73,15 @@ public class Main {
         }
 
         NhanVien newNhanVien = new NhanVien(name, gender, dob, phone, educationLevel);
-        nhanViens.add(newNhanVien);
+        nhanVienList.add(newNhanVien);
         System.out.println("Thêm nhân viên thành công");
     }
 
     private static void hienThiNhanVien() {
-        if (nhanViens.isEmpty()) {
+        if (nhanVienList.isEmpty()) {
             System.out.println("Không tìm thấy thông tin");
         } else {
-            for (NhanVien nhanVien : nhanViens) {
+            for (NhanVien nhanVien : nhanVienList) {
                 hienThiThongTinNhanVien(nhanVien);
             }
         }
@@ -92,7 +92,7 @@ public class Main {
         int employeeId = scanner.nextInt();
         scanner.nextLine(); // consume the newline character
 
-        for (NhanVien nhanVien : nhanViens) {
+        for (NhanVien nhanVien : nhanVienList) {
             if (nhanVien.nhanVienId == employeeId) {
                 System.out.println("Thông tin hiện tại: ");
                 hienThiThongTinNhanVien(nhanVien);
@@ -129,7 +129,6 @@ public class Main {
                     educationLevel = scanner.nextLine().toLowerCase();
                 }
 
-
                 nhanVien.ten = name;
                 nhanVien.gioiTinh = gender;
                 nhanVien.ngayThangNamSinh = dob;
@@ -146,7 +145,7 @@ public class Main {
     }
 
     private static void timNhanVien(Scanner scanner) {
-        if (nhanViens.isEmpty()) {
+        if (nhanVienList.isEmpty()) {
             System.out.println("Không tìm thấy nhân viên");
         } else {
             System.out.print("Nhập Id nhân viên muốn tìm");
@@ -158,7 +157,7 @@ public class Main {
             }
 
             boolean found = false;
-            for (NhanVien nhanVien : nhanViens) {
+            for (NhanVien nhanVien : nhanVienList) {
                 if (String.valueOf(nhanVien.nhanVienId).equals(searchKey) || nhanVien.ten.toLowerCase().contains(searchKey)) {
                     found = true;
                     hienThiThongTinNhanVien(nhanVien);
