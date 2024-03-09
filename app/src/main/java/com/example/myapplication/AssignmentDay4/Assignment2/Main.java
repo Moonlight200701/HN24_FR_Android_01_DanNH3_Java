@@ -77,7 +77,7 @@ public class Main {
                         }
                         System.out.println("Address: ");
                         String address = scanner.nextLine();
-                        Students student = new Students(rollNo, name, sex, age, email, address);
+                        Students student = new Students(rollNo++, name, sex, age, email, address);
                         studentManagement.addStudent(student);
                         System.out.println("Add student " + (i + 1) + " successfully");
                     }
