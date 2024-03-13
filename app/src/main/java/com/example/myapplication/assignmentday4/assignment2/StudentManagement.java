@@ -21,7 +21,7 @@ public class StudentManagement {
         }
     }
 
-    public void printAllStudents() {
+    public void  printAllStudents() {
         if(studentList.isEmpty()){
             System.out.println("No student here!");
         }

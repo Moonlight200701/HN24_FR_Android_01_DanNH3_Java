@@ -1,0 +1,6 @@
+NghiaTT25 TranTrungNghia 19 F1 8.9
+TungVV3 VuVietTung 19 F2 9.0
+GiangDM DoManhGiang 19 F1 8.6
+HuanNV4 NguyenVanHuan 19 F2 6.4
+TanNV13 NguyenVanTan 19 F3 7.8
+DucNL NguyenLinhDuc 19 TWB 8.8

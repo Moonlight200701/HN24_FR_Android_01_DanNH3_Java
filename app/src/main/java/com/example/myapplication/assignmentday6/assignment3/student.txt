@@ -1,0 +1,6 @@
+NghiaTT25 TranTrungNghia 8.9
+TungVV3 VuVietTung 9.0
+GiangDM DoManhGiang 8.6
+HuanNV4 NguyenVanHuan 6.4
+TanNV13 NguyenVanTan 7.8
+DucNL NguyenLinhDuc 8.8
