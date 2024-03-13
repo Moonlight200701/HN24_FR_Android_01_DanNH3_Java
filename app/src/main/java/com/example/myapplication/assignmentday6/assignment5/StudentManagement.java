@@ -30,7 +30,7 @@ public class StudentManagement {
             System.out.println("0. Exit");
             System.out.print("You must choose, Mr Sparrow: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // Đọc và loại bỏ dòng mới
+            scanner.nextLine();
             switch (choice) {
                 case 1:
                     addStudent(scanner);
@@ -79,97 +79,97 @@ public class StudentManagement {
 
     private static void addStudent(Scanner scanner) {
         String studentName, studentAddress;
-        System.out.println("Nhập mã sinh viên: ");
+        System.out.println("Student Id: ");
         String studentId = scanner.nextLine();
 
-        System.out.println("Nhập họ tên (không có dấu cách): ");
+        System.out.println("Student Name: ");
         do{
             studentName = scanner.nextLine();
 
             if (studentName.contains(" ")) {
-                System.out.println("Chuỗi không được chứa dấu cách. Vui lòng nhập lại.");
+                System.out.println("Space detected, try again");
             }
         }while (studentName.contains(" "));
 
-        int tuoi;
+        int studentAge;
         do {
-            System.out.print("Nhập tuổi: ");
-            while (!scanner.hasNextInt()) { // Kiểm tra xem nhập vào có phải là số không
-                System.out.println("Vui lòng nhập tuổi là một số nguyên.");
-                scanner.next(); // Đọc và bỏ qua giá trị không hợp lệ
+            System.out.print("Student Age: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("That's not a valid age, try again");
+                scanner.next();
             }
-            tuoi = scanner.nextInt();
-            scanner.nextLine(); // Đọc và loại bỏ dòng mới
+            studentAge = scanner.nextInt();
+            scanner.nextLine();
 
-            if (tuoi <= 0) {
-                System.out.println("Tuổi phải lớn hơn 0. Vui lòng nhập lại.");
+            if (studentAge <= 0) {
+                System.out.println("Age must be larger than 0");
             }
-        } while (tuoi <= 0);
+        } while (studentAge <= 0);
 
-        System.out.println("Nhập địa chỉ (không có dấu cách): ");
+        System.out.println("Student Address: ");
         do{
             studentAddress = scanner.nextLine();
 
             if (studentAddress.contains(" ")) {
-                System.out.println("Chuỗi không được chứa dấu cách. Vui lòng nhập lại.");
+                System.out.println("Space detected, try again");
             }
         }while (studentAddress.contains(" "));
 
-        float diemTB;
+        float studentGPA;
         do {
-            System.out.println("Nhập điểm trung bình: ");
-            while (!scanner.hasNextFloat()) { // Kiểm tra xem nhập vào có phải là số không
-                System.out.println("Vui lòng nhập điểm trung bình là một số dương.");
-                scanner.next(); // Đọc và bỏ qua giá trị không hợp lệ
+            System.out.println("Student GPA");
+            while (!scanner.hasNextFloat()) {
+                System.out.println("GPA must be positive, try again ");
+                scanner.next();
             }
-            diemTB = scanner.nextFloat();
-            scanner.nextLine(); // Đọc và loại bỏ dòng mới
+            studentGPA = scanner.nextFloat();
+            scanner.nextLine();
 
-            if (diemTB <= 0) {
-                System.out.println("Tuổi phải lớn hơn 0. Vui lòng nhập lại.");
+            if (studentGPA <= 0) {
+                System.out.println("GPA must be larger than 0, try again ");
             }
-        } while (diemTB <= 0);
+        } while (studentGPA <= 0);
 
-        Student student = new Student(studentId, studentName, tuoi, studentAddress, diemTB);
+        Student student = new Student(studentId, studentName, studentAge, studentAddress, studentGPA);
         students.add(student);
-        ghiSinhVienVaoFile(student);
+        saveStudentToFile(student);
         System.out.println("Thêm sinh viên thành công.");
     }
 
     private static void updateStudent(Scanner scanner) {
-        System.out.print("Nhập mã sinh viên cần sửa: ");
-        String maSVCanSua = scanner.nextLine();
-        Student studentNeedsToUpdate = timSinhVienTheoMa(maSVCanSua);
+        System.out.print("Which studentId you want to update? ");
+        String studentIdNeedsUpdate = scanner.nextLine();
+        Student studentNeedsToUpdate = findStudent(studentIdNeedsUpdate);
         if (studentNeedsToUpdate != null) {
-            System.out.println("Nhập thông tin mới của sinh viên:");
-            System.out.print("Họ tên: ");
+            System.out.println("New Info of this student: ");
+            System.out.print("Student Name: ");
             studentNeedsToUpdate.setName(scanner.nextLine());
-            System.out.print("Tuổi: ");
+            System.out.print("Student Age: ");
             studentNeedsToUpdate.setAge(scanner.nextInt());
-            scanner.nextLine(); // Đọc và loại bỏ dòng mới
-            System.out.print("Địa chỉ: ");
+            scanner.nextLine();
+            System.out.print("Student Address: ");
             studentNeedsToUpdate.setAddress(scanner.nextLine());
-            System.out.print("Điểm trung bình: ");
+            System.out.print("Student GPA ");
             studentNeedsToUpdate.setGpa(scanner.nextFloat());
-            scanner.nextLine(); // Đọc và loại bỏ dòng mới
+            scanner.nextLine();
 
             ghiLaiFile();
-            System.out.println("Sửa sinh viên thành công.");
+            System.out.println("Update student successfully");
         } else {
-            System.out.println("Không tìm thấy sinh viên có mã " + maSVCanSua);
+            System.out.println("Student whose id is " + studentIdNeedsUpdate + "doesn't exist");
         }
     }
 
     private static void deleteStudent(Scanner scanner) {
-        System.out.print("Nhập mã sinh viên cần xóa: ");
-        String maSVCanXoa = scanner.nextLine();
-        Student studentNeedsToDelete = timSinhVienTheoMa(maSVCanXoa);
+        System.out.print("Which studentId you want to delete? ");
+        String studentIdNeedsDelete = scanner.nextLine();
+        Student studentNeedsToDelete = findStudent(studentIdNeedsDelete);
         if (studentNeedsToDelete != null) {
             students.remove(studentNeedsToDelete);
             ghiLaiFile();
-            System.out.println("Xóa sinh viên thành công.");
+            System.out.println("Delete student successfully.");
         } else {
-            System.out.println("Không tìm thấy sinh viên có mã " + maSVCanXoa);
+            System.out.println("Student whose id is " + studentIdNeedsDelete + "doesn't exist");
         }
     }
 
@@ -190,7 +190,7 @@ public class StudentManagement {
         }
     }
 
-    private static Student timSinhVienTheoMa(String maSV) {
+    private static Student findStudent(String maSV) {
         for (Student student : students) {
             if (student.getStudentId().equals(maSV)) {
                 return student;
@@ -199,7 +199,7 @@ public class StudentManagement {
         return null;
     }
 
-    private static void ghiSinhVienVaoFile(Student student) {
+    private static void saveStudentToFile(Student student) {
         try (FileWriter writer = new FileWriter(fileName, true)) {
             writer.write(student.getStudentId() + " " + student.getName() + " " + student.getAge() + " " + student.getAddress() + " " + student.getGpa() + "\n");
         } catch (IOException e) {
