@@ -23,7 +23,13 @@ public class Management {
         System.out.println("Name: ");
         name = scanner.nextLine();
         System.out.println("Phone: ");
-        phone = scanner.nextLine();
+        phone = scanner.next();
+        while(!phone.matches("\\d+")) {
+            System.out.println("That's not a valid phone number, try again");
+            System.out.println("Customer Phone Number: ");
+            phone = scanner.next();
+        }
+        scanner.nextLine();
         if (!checkPhone(phone)) {
             contactList.add(new Contract(name, phone));
             System.out.println("Contact added successfully!");
@@ -61,7 +67,12 @@ public class Management {
                 System.out.println("Contact not found!");
             } else {
                 System.out.println("Phone: ");
-                phone = scanner.nextLine();
+                phone = scanner.next();
+                while(!phone.matches("\\d+")){
+                    System.out.println("Not a valid phone Number, try again ");
+                    scanner.nextLine();
+                }
+                scanner.nextLine();
                 if (!checkPhone(phone)) {
                     contactList.add(new Contract(name, phone));
                     System.out.println("Contact updated successfully!");
