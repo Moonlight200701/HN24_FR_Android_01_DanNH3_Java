@@ -133,7 +133,7 @@ public class StudentManagement {
         Student student = new Student(studentId, studentName, studentAge, studentAddress, studentGPA);
         students.add(student);
         saveStudentToFile(student);
-        System.out.println("Thêm sinh viên thành công.");
+        System.out.println("Add student successfully");
     }
 
     private static void updateStudent(Scanner scanner) {
@@ -190,9 +190,9 @@ public class StudentManagement {
         }
     }
 
-    private static Student findStudent(String maSV) {
+    private static Student findStudent(String studentIdNeedToFind) {
         for (Student student : students) {
-            if (student.getStudentId().equals(maSV)) {
+            if (student.getStudentId().equals(studentIdNeedToFind)) {
                 return student;
             }
         }
